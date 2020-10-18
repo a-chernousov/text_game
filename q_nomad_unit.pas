@@ -1,7 +1,7 @@
 ﻿unit q_nomad_unit;
 
 interface
-uses type_unit, quest_unit, market_unit;
+uses player_unit, quest_unit, market_unit;
 
 procedure nomad_start (var p : TPlayer); 
 procedure nomad_init(var quest : TQuest);
@@ -10,7 +10,7 @@ implementation
 var
   answer : char;
   hit : integer;
-  
+  run : integer;
 procedure nomad_bandit(var p : TPlayer);
 begin 
   write ('Бандит видет вас и направляется к вам. Вы хотите выстрелить в него (ваши патроны: ', p.ammo,')? (y/n): ');
@@ -49,7 +49,35 @@ begin
        p.money := 0;
        p.hp := p.hp - 15 ;
        p.time := p.time - 1;
-     end;
+     end 
+  end
+  else
+  begin
+    writeln('Бандит стреляет в вас, ваше здоровье уменьшилось (-15)');
+    p.hp := p.hp - 15;
+    run := random(100) + 1 ;
+    write('Вы хотит попытаться убежать ? (y/n) : ' );
+    readln(answer); 
+    if (answer = 'y') or (answer = 'н') then
+    begin
+      case run of
+        1..25 :
+         begin
+           writeln('Вы убежали от бандита ');
+         end;
+        26..94 :
+         begin
+           writeln('Вы убежали от бандита, но он вас ранил (-15)');
+           p.hp := p.hp - 15;
+         end
+        else
+         begin
+           writeln('Вас пристрелили на месте ');
+           p.hp := -1 ;
+         end;
+      end;
+    end;
+    
   end;
 end;
 

@@ -1,15 +1,22 @@
 ﻿program game;
-uses type_unit, text_unit, market_unit, quest_unit;
+uses player_unit, market_unit, quest_unit;
 
+const 
+  hello_string = 
+  'Привет путник ты зашёл в текстовую игру ';
+   
+  market_hello_string =
+  'Добро пожаловать на рынок ';
+  
 var
   player : TPlayer;
-  
+
 BEGIN
-  print_hello();
+  writeln(hello_string);
   
   init_player(player);
   
-  print_market_hello();
+  writeln(market_hello_string);
   market(player);
   writeln('Вы покидаете рынок'); 
   

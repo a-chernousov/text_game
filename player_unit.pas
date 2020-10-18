@@ -1,8 +1,8 @@
-﻿unit type_unit;
+﻿unit player_unit;
 
 interface
 const
-  DEFAULT_DAY_NUM = 30;
+  DEFAULT_DAY_NUM = 5;
   
 type TPlayer = record
   hp : integer; {default: 100 hp}

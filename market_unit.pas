@@ -1,7 +1,7 @@
 ﻿unit market_unit;
 
 interface 
-uses type_unit, text_unit;
+uses player_unit;
 
 const
   FOOD_PRICE = 20;

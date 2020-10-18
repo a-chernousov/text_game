@@ -1,7 +1,7 @@
 ﻿unit q_hunt_unit;
 
 interface
-uses type_unit, quest_unit;
+uses player_unit, quest_unit;
 
 procedure hunting_start(var p : TPlayer); 
 procedure hunting_init(var quest : TQuest);

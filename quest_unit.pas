@@ -2,7 +2,7 @@
 
 interface
 
-uses type_unit;
+uses player_unit;
 
 const ARRAY_MAX_NUM = 100;
 
@@ -30,9 +30,6 @@ implementation
 
 uses q_hunt_unit, 
      q_nomad_unit; 
-     
-     
-     
      {!Дописывать квесты СЮДААА!}
 
 procedure  quest_random_start(var p : TPlayer);
@@ -40,8 +37,10 @@ var
   rnd : integer;
 begin
   rnd := random(quest_bank.quest_num) + 1;
+  writeln('*****************************************');
   writeln(quest_bank.qbank[rnd].name);
   quest_bank.qbank[rnd].start_point(p);
+  writeln('*****************************************');
 end;
 
 procedure quest_init();
