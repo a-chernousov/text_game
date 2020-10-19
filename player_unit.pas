@@ -10,6 +10,7 @@ type TPlayer = record
   food : integer;
   money : integer;{default: 1000$}
   time : integer;{default : 30} 
+  reputation : integer;{default : 0} 
 end;
 
 procedure init_player(var p : TPlayer);
@@ -29,7 +30,7 @@ begin
   p.food := 0;
   p.money := 1000;
   p.time := DEFAULT_DAY_NUM;
-  
+  p.reputation := 0;
   print_status(p);
 end;
 
@@ -39,7 +40,8 @@ begin
           ' Здоровье=', p.hp,
           ' Патроны=', p.ammo,
           ' Еда=', p.food,
-          ' Деньги=',p.money);
+          ' Деньги=',p.money,
+          ' Репутация=', p.reputation);
 end;
 
 function player_is_alive (p : TPlayer) : boolean;
@@ -93,7 +95,7 @@ procedure player_print_score (p : TPlayer);
 var 
   score : integer;
 begin
-  score := p.ammo * 10 + p.food * 2 + p.money * 15 ;
+  score := p.ammo * 10 + p.food * 2 + p.money * 15 + p.reputation * 10;
   writeln('Ваши счёт составляет ', score);
 end;
 

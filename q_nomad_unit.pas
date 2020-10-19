@@ -108,6 +108,8 @@ begin
       readln(nomad_gold);
       if p.money > nomad_gold then
         begin
+          writeln('У вас уменьшилось золота, но увеличилась репутация (5);');
+          p.reputation := p.reputation + 5;
           p.money :=  p.money - nomad_gold;
         end
         else 
