@@ -106,7 +106,7 @@ begin
     begin
       write('Сколько вы хотите дать ему золота: ');
       readln(nomad_gold);
-      if p.money > nomad_gold then
+      if (p.money > nomad_gold) and (nomad_gold > 0) then
         begin
           writeln('У вас уменьшилось золота, но увеличилась репутация (5);');
           p.reputation := p.reputation + 5;
