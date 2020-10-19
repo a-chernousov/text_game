@@ -76,8 +76,11 @@ begin
            p.hp := -1 ;
          end;
       end;
-    end;
-    
+    end
+    else 
+      begin
+        {ДОПИСАТЬ KEKW}  
+      end;
   end;
 end;
 

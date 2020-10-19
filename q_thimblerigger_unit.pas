@@ -16,21 +16,22 @@ begin
   writeln('Затем игроку предлагается угадать, под каким из напёрстков находится шарик.');
 end;
 
+var
+  answer : char;
+  number_thimble : integer;
+  thimble : integer;
+  
 procedure thimblerigger_game(var p : TPlayer);
 begin
     
 end;
 
-var
-  answer : char;
-  number_thimble : integer;
-  thimble : integer;
 procedure thimblerigger_start (var p : TPlayer); 
 begin
   writeln('Вы попали в небольшой городок и на площади сидит старик.');
-  writeln('Он зовёт вас поиграть в напёрстки, хотите сыграть (ваши деньги ', p.money,')? (y/n): ');
+  writeln('Он зовёт вас поиграть в напёрстки, одна игра стоит 50 золота,'); 
+  writeln('если выйграете, то получита 100 золота, хотите сыграть (ваши деньги ', p.money,')? (y/n) ');
   thimblerigger_rule(p);
-  writeln('Одна игра стоит 50 золота, если выйграете, то получита 100 золота');
   readln(answer);
   if (answer = 'y') then
     begin
