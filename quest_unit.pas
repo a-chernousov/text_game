@@ -29,7 +29,8 @@ procedure quest_random_start(var p : TPlayer);
 implementation
 
 uses q_hunt_unit, 
-     q_nomad_unit; 
+     q_nomad_unit, 
+     q_thimblerigger_unit;
      {!Дописывать квесты СЮДААА!}
 
 procedure  quest_random_start(var p : TPlayer);
@@ -52,6 +53,9 @@ begin
   
   quest_bank.quest_num := quest_bank.quest_num + 1;
   nomad_init(quest_bank.qbank[quest_bank.quest_num]);
+  
+  quest_bank.quest_num := quest_bank.quest_num + 1;
+  thimblerigger_init(quest_bank.qbank[quest_bank.quest_num]);
   
 end;
   
