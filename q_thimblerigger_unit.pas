@@ -65,7 +65,7 @@ begin
        writeln('Ваша репутация упала в глазах людей (-5) ');  
        p.reputation := p.reputation - 5;
      end;
-  
+   writeln('Вы вывходите из города и идёте дальше ');
 end;   
 
 procedure thimblerigger_init(var quest : TQuest);

@@ -95,7 +95,7 @@ procedure player_print_score (p : TPlayer);
 var 
   score : integer;
 begin
-  score := p.ammo * 10 + p.food * 2 + p.money * 15 + p.reputation * 10;
+  score := p.ammo * 50 + p.food * 10 + p.money * 10 + p.reputation * 20;
   writeln('Ваши счёт составляет ', score);
 end;
 

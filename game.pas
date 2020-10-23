@@ -39,6 +39,6 @@ BEGIN
   begin
     writeln('Поздравляю, вы остальсь живы');
     player_print_score(player);
-    
+    readln();
   end;
 END.

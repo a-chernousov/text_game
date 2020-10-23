@@ -57,6 +57,9 @@ begin
   quest_bank.quest_num := quest_bank.quest_num + 1;
   thimblerigger_init(quest_bank.qbank[quest_bank.quest_num]);
   
+  quest_bank.quest_num := quest_bank.quest_num + 1;
+  sectarian_init(quest_bank.qbank[quest_bank.quest_num]);
+  
 end;
   
 end.
