@@ -16,24 +16,24 @@ begin
   write ('Бандит видет вас и направляется к вам. Вы хотите выстрелить в него (ваши патроны: ', p.ammo,')? (y/n): ');
   readln (answer);
   if answer = 'y' then
-    begin
+   begin
     if p.ammo > 0 then
     begin
      p.ammo := p.ammo - 1;
      hit := random (100) + 1;
      case hit of
-      1..30 : 
+      1..35 : 
         begin
          writeln('Вы попали в голову бандита, он умер');
          writeln('Вы нашли немного золота и патронов ');
          p.ammo := p.ammo + 3;
          p.money := p.money + 400; 
         end;
-      31..90 : 
+      36..94 : 
         begin
           writeln('Вы ранили бандита и он сбежал');
         end;
-      91..100 : 
+      95..100 : 
         begin
           writeln('Бандит выстрелил в вас первый, вы умерли' );
           p.hp := -1 ;
@@ -49,7 +49,7 @@ begin
        p.money := 0;
        p.hp := p.hp - 15 ;
        p.time := p.time - 1;
-     end 
+     end; 
   end
   else
   begin
@@ -65,7 +65,7 @@ begin
          begin
            writeln('Вы убежали от бандита ');
          end;
-        26..94 :
+        26..96 :
          begin
            writeln('Вы убежали от бандита, но он вас ранил (-15)');
            p.hp := p.hp - 15;
@@ -79,7 +79,45 @@ begin
     end
     else 
       begin
-        {ДОПИСАТЬ KEKW}  
+        writeln('Вы начинаете драку с бандитом  ');
+        writeln('Бандит оказался не очень сильным и нанёс вам немного урона (-5)');
+        p.hp := p.hp - 5;
+        writeln('Хотите ударить его в ответ ? (y/n): '); {СИЛА}
+        readln(answer);
+        if (answer = 'y') or (answer = 'н') then
+          begin 
+            writeln('Вы проводите серию ударов по противнику');
+            hit := random (100) + 1;
+            case hit of
+              1..3 :
+                begin
+                  writeln('Вы не очень дерётесь и не нанесли ни одного удара по противнику');
+                  writeln('Противник офигел от ваших ударов и сбежал в страхе');
+                  writeln('Вы идёте дальше  ');
+                end;
+              4..35 :
+                begin
+                  writeln('Вы убили бандита с 1 удара');
+                end;
+             36..100 : 
+                begin
+                  writeln('Вы избили бандита и забрали все его вещи');
+                  writeln('Вы получили немного золота, потронов, еды и репутации');
+                  p.ammo := p.ammo + 1;
+                  p.food := p.food + 4;
+                  p.money := p.money + 200;
+                  p.reputation := p.reputation + 20;
+                  writeln('Вы идёте дальше');
+                end;
+            end;
+          end
+        else
+          begin
+            writeln('Вас ограбили, ПОЗДРАВЛЯЕМ!');
+            p.ammo := 0;
+            p.food := 0;
+            p.money := 0;
+          end;
       end;
   end;
 end;
