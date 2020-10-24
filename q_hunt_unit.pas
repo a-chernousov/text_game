@@ -5,7 +5,7 @@ uses player_unit, quest_unit;
 
 procedure hunting_start(var p : TPlayer); 
 procedure hunting_init(var quest : TQuest);
-   
+  
 implementation
 
 procedure hunting_start(var p : TPlayer);

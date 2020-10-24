@@ -28,7 +28,7 @@ BEGIN
     player_print_day(player);
     quest_random_start(player);
     player_day_is_over(player);
-    readln();
+    readln();
   end;
   
   if not player_is_alive(player) then

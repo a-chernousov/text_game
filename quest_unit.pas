@@ -5,7 +5,7 @@ interface
 uses player_unit;
 
 const ARRAY_MAX_NUM = 100;
-
+  
 type TQuestStart = procedure(var p: TPlayer);
 
 type TQuest = record
@@ -30,7 +30,8 @@ implementation
 
 uses q_hunt_unit, 
      q_nomad_unit, 
-     q_thimblerigger_unit;
+     q_thimblerigger_unit,
+     q_sectarian_unit;
      {!Дописывать квесты СЮДААА!}
 
 procedure  quest_random_start(var p : TPlayer);

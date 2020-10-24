@@ -16,17 +16,11 @@ begin
   writeln('Затем игроку предлагается угадать, под каким из напёрстков находится шарик.');
 end;
 
+procedure thimblerigger_start (var p : TPlayer); 
 var
   answer : char;
   number_thimble : integer;
   thimble : integer;
-  
-procedure thimblerigger_game(var p : TPlayer);
-begin
-    
-end;
-
-procedure thimblerigger_start (var p : TPlayer); 
 begin
   writeln('Вы попали в небольшой городок и на площади сидит старик.');
   writeln('Он зовёт вас поиграть в напёрстки, одна игра стоит 50 золота,'); 
