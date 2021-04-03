@@ -50,14 +50,14 @@ procedure quest_init();
 begin
   randomize();
   
-  quest_bank.quest_num := 1;
-  hunting_init(quest_bank.qbank[quest_bank.quest_num]);
+ // quest_bank.quest_num := 1;
+ // hunting_init(quest_bank.qbank[quest_bank.quest_num]);
   
-  quest_bank.quest_num := quest_bank.quest_num + 1;
-  nomad_init(quest_bank.qbank[quest_bank.quest_num]);
+ // quest_bank.quest_num := quest_bank.quest_num + 1;
+ // nomad_init(quest_bank.qbank[quest_bank.quest_num]);
   
-  quest_bank.quest_num := quest_bank.quest_num + 1;
-  thimblerigger_init(quest_bank.qbank[quest_bank.quest_num]);
+ // quest_bank.quest_num := quest_bank.quest_num + 1;
+ // thimblerigger_init(quest_bank.qbank[quest_bank.quest_num]);
   
   //quest_bank.quest_num := quest_bank.quest_num + 1;
   //sectarian_init(quest_bank.qbank[quest_bank.quest_num]);
