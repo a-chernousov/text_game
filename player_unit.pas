@@ -11,6 +11,7 @@ type TPlayer = record
   money : integer;{default: 1000$}
   time : integer;{default : 30} 
   reputation : integer;{default : 0} 
+  contribution : integer;{default 0}
 end;
 
 procedure init_player(var p : TPlayer);
@@ -31,6 +32,7 @@ begin
   p.money := 1000;
   p.time := DEFAULT_DAY_NUM;
   p.reputation := 0;
+  p.contribution := 0;
   print_status(p);
 end;
 
