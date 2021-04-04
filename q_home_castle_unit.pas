@@ -72,6 +72,7 @@ implementation
   
   procedure home_castle_init(var quest : TQuest);
   begin
+    init_bank();
     quest.name := 'Мейн(Тест)';
     quest.start_point := home_castle_start;
   end;
