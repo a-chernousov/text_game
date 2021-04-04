@@ -3,57 +3,89 @@
 interface
 uses player_unit;
  
-type Tbank = record
+type TBank = record
   bet : real;
   bank_is_open : integer;
   storage_time : integer;
+  contribution : integer;
 end;
 
-procedure init_bank(var h : TBank);
+var
+  gbank : TBank;
+procedure init_bank();
 
 procedure bank (var p : TPlayer);
 
 implementation
-
-procedure init_bank(var h : TBank);
+ 
+procedure count_bank (var p : TPlayer);
+var
+  all_money : integer;
 begin
-  h.bank_is_open := 1;
-  h.bet := 0.15;
+  all_money := Round((p.time -  GBank.storage_time) * GBank.contribution * GBank.bet ); 
+  GBank.contribution := round(all_money);     
+end;
+
+procedure began_bank(p : TPlayer);
+begin
+  if GBank.bank_is_open = 0 then
+    write('0')
+  else 
+   count_bank(p);
+   writeln(GBank.contribution);
+end;
+ 
+procedure init_bank();
+begin
+  GBank.bank_is_open := 1;
+  GBank.bet := 0.15;
+  GBank.contribution := 0 ;
+  GBank.storage_time := 0;
 end;
 
 procedure invest(p : TPlayer);
-  var
-    choice1 : integer;
   begin
     write('Введить сумму которую хотите вложить :  ' );
-    readln(choice1);
-    writeln('Спасибо что проинвестировали деньги в банк "Зелёная миля"');
-    h.storage_time := p.time;
+    readln(GBank.contribution);
+    if GBank.contribution > p.money then
+      begin
+        writeln('У вам нет такой суммы введите другую');
+        invest(p);
+      end
+      else
+        begin
+          writeln('Спасибо что проинвестировали деньги в банк "Зелёная миля"');
+          GBank.storage_time := p.time;
+          p.money := p.money - GBank.contribution;
+        end;
   end;
   
 procedure pick_up (p : TPlayer);
-  var
-    a : real;
-    all_money : integer;
   begin
-    a := Round((p.time -  p.storage_time) * p.contribution * h.bet ); 
-    all_money := round(a);
-    writeln('Деньги выданы вам, спасибо что пришли');
+    writeln('Вам выдано ', Gbank.contribution ,' спасибо что пришли'); 
+    p.money := p.money + GBank.contribution;
   end;
 
+procedure start_bank (p : TPlayer);
+  begin
+    if GBank.bank_is_open = 0 then
+      writeln('Что бы открыть банк вам нужно 600 золотых (у вас : ',p.money,')')
+    else
+      writeln('Вы вошли в банк ');
+  end;
 procedure bank (var p : TPlayer);
   var
-    money1 : integer;
     choice : char;
-    money2 : integer;
     choice2 : integer;
 begin
-  writeln('Что бы открыть банк вам нужно 600 золотых (у вас : ',p.money,')'); 
+  start_bank (p);
   if p.money >= 600 then
     begin
-      
+      GBank.bank_is_open := 1;
       writeln('Добро пожаловать в банк "Зелёная миля" ');
-      writeln('Ваше вложение сейчас составляют ', p.contribution);
+      write('Ваше вложение сейчас составляют ' );
+      began_bank(p);
+      writeln();
       write('Хотите ли вы вложить или забрать деньги под процент (y/n): ');
       readln(choice); 
        if choice = 'y' then

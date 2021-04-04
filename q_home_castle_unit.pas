@@ -18,7 +18,7 @@ implementation
     
   procedure bank_check (p : TPlayer);
     begin
-      if p.bank_is_open = 0 then
+      if GBank.bank_is_open = 0 then
         writeln('4● Казна (Закрыто)')
       else 
         writeln('4● Казна');
